@@ -25,9 +25,14 @@ export default function Checkout(props) {
     useEffect(() => {
         let { id } = props.match.params;
         dispatch(layDanhSachPhongVeAction(id));
-
+        
         connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
+            console.log('dsGheKhachDat',dsGheKhachDat);
         })
+
+        
+
+
     }, [])
 
 
@@ -66,6 +71,7 @@ export default function Checkout(props) {
             return <Fragment key={index}>
                 {ghe.loaiGhe === "Vip" ?<button onClick={()=>{
                     dispatch(datGheAction(ghe,id));
+
                 }} disabled={disable} className={`gheVip m-2 ${gheKhachChon} ${gheDangChon} ${gheBanDat}  ${gheDuocChon}`}  key={index} >{ghe.daDat ? gheBanDat ||  gheKhachChon!='' ? <UserAddOutlined />:<IssuesCloseOutlined style={{marginBottom:7.5}} /> : gheKhachChon!='' ? <UserAddOutlined /> :  ghe.tenGhe}</button> 
                 :<button onClick={()=>{
                     dispatch(datGheAction(ghe,id));
@@ -190,10 +196,6 @@ export default function Checkout(props) {
                         {userLogin.email}
                     </div>
                     <hr />
-                    {/* <div className="my-4">
-                        <i className="text-base" >Phone</i><br />
-                        {userLogin.soDt}
-                    </div> */}
                     <hr style={{background:'white'}} />
                     <div className="my-4">
                         <i className="text-base" >Mã giảm giá</i><br />

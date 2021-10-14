@@ -1,12 +1,16 @@
-import { CHANGE_TAB_ACTIVE, DAT_VE_HOAN_TAT, GET_CHI_TIET_PHONG_VE } from "../../utils/settings";
+import { ADD_CMT, CHANGE_TAB_ACTIVE, DAT_VE_HOAN_TAT, GET_CHI_TIET_PHONG_VE, LIKE } from "../../utils/settings";
 import { ThongTinLichChieu } from './../../_Core/Models/ThongTinPhongVe';
-import { DAT_GHE, CHUYEN_TAB } from './../../utils/settings';
+import { DAT_GHE, CHUYEN_TAB, XOA_CMT } from './../../utils/settings';
 
 const stateDefault = {
     chiTietDatVe : new ThongTinLichChieu(),
     danhSachGheDangDat : [],
     danhSachGheKhachDangDat : [{maGhe:95561}],
-    tabActive : "1"
+    tabActive : "1",
+    binhLuan : [
+        {id:1,taKhoan: 'Đức Tony',content : 'Phim này hay nè ahihi!',like:10,isLike:false},
+        {id:2,taKhoan: 'Trọng fake',content : 'Wowww, tuyệt vời lun nè',like:12,isLike:false},
+    ]
 }
 
 export const quanLyDatVeReducer = (state =stateDefault, action) =>{
@@ -16,6 +20,31 @@ export const quanLyDatVeReducer = (state =stateDefault, action) =>{
             state.chiTietDatVe = action.payload;
             return {...state};
         }
+
+        case LIKE : {
+            let indexFind = state.binhLuan.findIndex(user => user.id === action.payload);
+            state.binhLuan[indexFind].isLike =  !state.binhLuan[indexFind].isLike;
+            console.log(state.binhLuan[indexFind].isLike);
+            if(state.binhLuan[indexFind].isLike === true){
+                state.binhLuan[indexFind].like +=1;
+            }else{
+                state.binhLuan[indexFind].like -=1;
+            }
+            return {...state};
+        }
+
+        case ADD_CMT : {
+            state.binhLuan.push(action.payload);
+            console.log(state.binhLuan);
+            return {...state}
+        }
+
+        case XOA_CMT : {
+            let indexFind = state.binhLuan.findIndex(user => user.id === action.payload);
+            state.binhLuan.splice(indexFind,1);
+            return {...state}
+        }
+        
 
         case DAT_GHE : {
             let danhSachGheCapNhat = [...state.danhSachGheDangDat]

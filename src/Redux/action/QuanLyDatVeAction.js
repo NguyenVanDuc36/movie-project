@@ -76,12 +76,9 @@ export const datGheAction = (ghe,maLichChieu) => {
         })
 
         //call api về backend
-        // let danhSachGheDangDat = getState().quanLyDatVeReducer.danhSachGheDangDat;
-        // let userLogin = getState().QuanLyNguoiDungReducer.userLogin;
-
-
-        // danhSachGheDangDat = JSON.stringify(danhSachGheDangDat);
-
+        let danhSachGheDangDat = getState().quanLyDatVeReducer.danhSachGheDangDat;
+        let userLogin = getState().QuanLyNguoiDungReducer.userLogin.taiKhoan;
+        danhSachGheDangDat = JSON.stringify(danhSachGheDangDat);
         // connection.invoke('datGhe',userLogin,danhSachGheDangDat,maLichChieu);
     }
 }

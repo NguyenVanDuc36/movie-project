@@ -19,22 +19,22 @@ export default function Footer() {
                         
                         </a>
                         <div class="wrapper m-0 mt-3">
-                                        <div class="icon facebook">
+                                        <a target="_blank" href="https://www.facebook.com/profile.php?id=100048916264654" class="icon facebook">
                                             <div class="tooltip">Facebook</div>
-                                            <span><i class="fab  fa-facebook-f"></i></span>
-                                        </div>
-                                        <div class="icon twitter">
+                                            <span ><i class="fab   fa-facebook-f"></i></span>
+                                        </a>
+                                        <a href="https://twitter.com/" target="_blank" class="icon twitter">
                                             <div class="tooltip">Twitter</div>
                                             <span><i class="fab fa-twitter"></i></span>
-                                        </div><br/>
-                                        <div class="icon instagram">
+                                        </a><br/>
+                                        <a href="https://www.instagram.com/" target="_blank" class="icon instagram">
                                             <div class="tooltip">Instagram</div>
                                             <span><i class="fab fa-instagram"></i></span>
-                                        </div>
-                                        <div class="icon youtube">
+                                        </a>
+                                        <a href="https://www.youtube.com/" target="_blank" class="icon youtube">
                                             <div class="tooltip">Youtube</div>
                                             <span><i class="fab fa-youtube"></i></span>
-                                        </div>
+                                        </a>
                                     </div>
                     </div>
                     <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">

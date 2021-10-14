@@ -29,9 +29,10 @@ export default function Film(props) {
         visible={visible}
         onOk={() => setVisible(false)}
         onCancel={() => setVisible(false)}
-        width={1000}
+        width={700}
         footer={null}
       >
+        <iframe width="700" height="391" src={phim.trailer} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
       </Modal>
       </div>   
